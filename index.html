@@ -3,421 +3,241 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INTIMO — Вариант B (Минимализм / Editorial)</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>INTIMO — Вариант A</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#fdfdfc;--bg2:#f6f5f3;--text:#1a1a1a;--accent:#9e7c6b;--accent-dark:#7a5d4e;
-  --card:#fff;--border:#e9e7e4;--muted:#8c8580;--light:#f0eeeb;
-  --serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',sans-serif;
-  --radius:4px;
+  --bg:#fdf9f6;--bg2:#faf3ed;--text:#3a2f2b;--accent:#d4937a;--accent-light:#f0c9b8;
+  --accent-dark:#b87560;--card:#fff;--border:#ede4dc;--muted:#9e8e85;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Nunito Sans',sans-serif;
+  --radius:16px;--radius-sm:10px;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* TOPBAR */
-.topbar{background:var(--text);color:#fff;text-align:center;padding:10px 16px;font-size:12px;font-weight:400;letter-spacing:.8px}
-.topbar strong{font-weight:600;letter-spacing:.5px}
+.announce{background:var(--accent);color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-weight:400;letter-spacing:.5px}
+.announce strong{font-weight:600}
 
-/* HEADER */
-header{border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(253,253,252,.95);backdrop-filter:blur(14px)}
-.h-row{max-width:1400px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:70px}
-.h-left{display:flex;gap:28px;align-items:center}
-.h-left a{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;color:var(--text);font-weight:500;transition:opacity .3s}
-.h-left a:hover{opacity:.55}
-.logo{font-family:var(--serif);font-size:28px;color:var(--text);text-decoration:none;text-align:center;letter-spacing:1px}
-.logo em{font-style:italic;color:var(--accent)}
-.h-right{display:flex;gap:18px;justify-content:flex-end;align-items:center}
-.h-btn{background:none;border:none;cursor:pointer;color:var(--text);display:flex;align-items:center;transition:opacity .3s}
-.h-btn:hover{opacity:.55}
-.h-btn svg{width:20px;height:20px}
-.h-btn .cnt{margin-left:5px;font-size:11px;font-weight:600;color:var(--accent)}
-.mob-menu{display:none;background:none;border:none;cursor:pointer}
+header{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(253,249,246,.92)}
+.h-top{max-width:1320px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:3px;color:var(--text);text-decoration:none}
+.logo i{color:var(--accent);font-style:italic}
+.h-actions{display:flex;gap:20px;align-items:center}
+.h-icon{background:none;border:none;cursor:pointer;color:var(--text);display:flex;align-items:center;gap:6px;font-size:13px;font-family:var(--sans);transition:color .3s}
+.h-icon:hover{color:var(--accent)}
+.h-icon svg{width:20px;height:20px}
+.h-icon .badge{background:var(--accent);color:#fff;font-size:10px;width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-left:2px}
+nav{background:var(--bg);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 40px;display:flex;gap:32px;justify-content:center}
+.nav-inner a{display:inline-block;padding:14px 0;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;color:var(--text);font-weight:500;position:relative;transition:color .3s}
+.nav-inner a:hover{color:var(--accent)}
+.nav-inner a::after{content:'';position:absolute;bottom:10px;left:0;width:0;height:2px;background:var(--accent);border-radius:1px;transition:width .3s}
+.nav-inner a:hover::after{width:100%}
+.mobile-toggle{display:none;background:none;border:none;cursor:pointer}
 
-/* HERO */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:72vh}
-.hero-left{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;background:var(--bg)}
-.hero-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:28px;font-weight:600}
-.hero h1{font-family:var(--serif);font-size:52px;line-height:1.08;margin-bottom:20px;font-weight:400}
-.hero h1 em{font-style:italic}
-.hero .sub{color:var(--muted);font-size:15px;max-width:380px;margin-bottom:36px;font-weight:300;line-height:1.7}
-.hero-actions{display:flex;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 32px;font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;font-weight:500;transition:all .3s}
-.btn-dark{background:var(--text);color:#fff;border-radius:var(--radius)}
-.btn-dark:hover{background:var(--accent-dark)}
-.btn-line{background:none;color:var(--text);border:1.5px solid var(--text);border-radius:var(--radius)}
-.btn-line:hover{background:var(--text);color:#fff}
-.hero-right{background:linear-gradient(145deg,#e8e2dc 0%,#d4ccc4 100%);display:flex;align-items:center;justify-content:center;position:relative}
-.hero-placeholder{width:260px;height:360px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(0,0,0,.15);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:600px;overflow:hidden}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:60px 60px 60px 80px;background:var(--bg2)}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-dark);margin-bottom:24px;font-weight:600}
+.hero-tag::before{content:'';width:24px;height:1px;background:var(--accent)}
+.hero h1{font-family:var(--serif);font-size:48px;font-weight:300;line-height:1.15;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{color:var(--muted);font-size:15px;max-width:400px;margin-bottom:32px;font-weight:300;line-height:1.7}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;font-family:var(--sans);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;border-radius:var(--radius-sm);font-weight:500;transition:all .35s}
+.btn-fill{background:var(--accent);color:#fff}
+.btn-fill:hover{background:var(--accent-dark)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-visual{position:relative;overflow:hidden}
+.hero-visual img{width:100%;height:100%;object-fit:cover}
 
-/* TICKER */
-.ticker{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;white-space:nowrap}
-.ticker-track{display:inline-flex;gap:48px;animation:scroll 30s linear infinite}
-.ticker-track span{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:400}
-.ticker-track span strong{color:var(--accent);font-weight:600}
-@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.shipping-bar{background:var(--bg2);border:1.5px dashed var(--accent-light);border-radius:var(--radius);max-width:1320px;margin:40px auto;padding:20px 32px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center}
+.shipping-bar p{font-size:14px;color:var(--text);font-weight:400}
+.shipping-bar strong{color:var(--accent-dark);font-weight:600}
 
-/* SECTION COMMON */
-.sec{padding:80px 48px;max-width:1400px;margin:0 auto}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
-.sec-head h2{font-family:var(--serif);font-size:32px;font-weight:400}
-.sec-head a{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);text-decoration:none;font-weight:500;border-bottom:1px solid var(--accent);padding-bottom:2px;transition:opacity .3s}
-.sec-head a:hover{opacity:.7}
-.sec-sub{color:var(--muted);font-size:13px;font-weight:300;margin-top:4px}
+.section{padding:72px 40px;max-width:1320px;margin:0 auto}
+.s-header{text-align:center;margin-bottom:48px}
+.s-header h2{font-family:var(--serif);font-size:34px;font-weight:300;margin-bottom:8px}
+.s-header p{color:var(--muted);font-size:14px;font-weight:300}
+.s-header .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);margin:14px auto 0}
 
-/* CATEGORIES */
-.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.cat-block{position:relative;aspect-ratio:3/4.2;overflow:hidden;cursor:pointer;border-radius:var(--radius)}
-.cat-block .cat-bg{position:absolute;inset:0;transition:transform .5s}
-.cat-block:hover .cat-bg{transform:scale(1.05)}
-.cat-block:nth-child(1) .cat-bg{background:linear-gradient(165deg,#ddd5cd,#c4b8ac)}
-.cat-block:nth-child(2) .cat-bg{background:linear-gradient(165deg,#d0c6ba,#b5a898)}
-.cat-block:nth-child(3) .cat-bg{background:linear-gradient(165deg,#d8cfc5,#bfb3a5)}
-.cat-block:nth-child(4) .cat-bg{background:linear-gradient(165deg,#e0d8d0,#cbc1b5)}
-.cat-block .cat-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,26,.6) 0%,transparent 40%)}
-.cat-block .cat-info{position:absolute;bottom:20px;left:20px;color:#fff;z-index:1}
-.cat-info h3{font-family:var(--serif);font-size:20px;font-weight:400}
-.cat-info span{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;opacity:.7}
+.cat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat-tile{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:2.8/4;cursor:pointer;transition:transform .4s}
+.cat-tile:hover{transform:scale(1.02)}
+.cat-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cat-tile:hover img{transform:scale(1.06)}
+.cat-tile .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(58,47,43,.6) 0%,transparent 50%);z-index:1}
+.cat-tile .cat-label{position:absolute;bottom:24px;left:24px;z-index:2;color:#fff}
+.cat-label h3{font-family:var(--serif);font-size:20px;font-weight:400;margin-bottom:2px}
+.cat-label span{font-size:11px;opacity:.75;letter-spacing:1px;text-transform:uppercase}
 
-/* PRODUCT GRID */
-.p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.p-card{cursor:pointer}
-.p-card:hover .p-thumb{transform:scale(1.02)}
-.p-thumb-wrap{overflow:hidden;border-radius:var(--radius);aspect-ratio:3/4;background:var(--bg2);position:relative;margin-bottom:14px}
-.p-thumb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;transition:transform .5s}
-.p-thumb .ico{font-size:48px;opacity:.08}
-.p-label{position:absolute;top:10px;left:10px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:var(--radius);font-weight:600}
-.lb-new{background:var(--text);color:#fff}
-.lb-sale{background:#b94a4a;color:#fff}
-.p-wish{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.8);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
-.p-card:hover .p-wish{opacity:1}
-.p-wish svg{width:16px;height:16px;color:var(--text)}
-.p-cart-bar{position:absolute;bottom:0;left:0;right:0;background:var(--text);color:#fff;padding:11px;text-align:center;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;transform:translateY(100%);transition:transform .3s;font-weight:500}
-.p-card:hover .p-cart-bar{transform:translateY(0)}
-.p-meta .p-brand{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
-.p-meta .p-name{font-size:14px;font-weight:500;margin-bottom:5px;line-height:1.3}
-.p-meta .p-price{display:flex;gap:8px;align-items:center}
-.p-price .cur{font-weight:600;font-size:14px}
-.p-price .old{font-size:12px;color:var(--muted);text-decoration:line-through}
-.p-sizes{display:flex;gap:4px;margin-top:8px}
-.p-sizes span{min-width:28px;height:24px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);font-size:9px;color:var(--muted);padding:0 5px;transition:all .2s;cursor:pointer}
-.p-sizes span:hover{border-color:var(--text);color:var(--text)}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prod-card{background:var(--card);border-radius:var(--radius);overflow:hidden;transition:transform .4s,box-shadow .4s}
+.prod-card:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(58,47,43,.08)}
+.prod-img{aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--bg2)}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.prod-card:hover .prod-img img{transform:scale(1.05)}
+.prod-img .tag{position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:6px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:600;z-index:2}
+.tag-new{background:var(--accent);color:#fff}.tag-sale{background:#c45c5c;color:#fff}
+.prod-img .wishlist{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;z-index:2}
+.prod-card:hover .wishlist{opacity:1}
+.wishlist svg{width:18px;height:18px;color:var(--accent)}
+.prod-img .add-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(58,47,43,.88);color:#fff;padding:12px;text-align:center;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;transform:translateY(100%);transition:transform .35s;cursor:pointer;backdrop-filter:blur(4px);font-weight:500;z-index:2}
+.prod-card:hover .add-bar{transform:translateY(0)}
+.prod-body{padding:18px 16px 20px}
+.prod-brand{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px}
+.prod-name{font-family:var(--serif);font-size:16px;font-weight:400;margin-bottom:6px;line-height:1.3}
+.prod-prices{display:flex;align-items:center;gap:8px}
+.prod-prices .now{font-weight:600;font-size:15px}
+.prod-prices .was{font-size:13px;color:var(--muted);text-decoration:line-through}
+.prod-sizes{display:flex;gap:5px;margin-top:10px}
+.prod-sizes span{min-width:30px;height:26px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:6px;font-size:10px;color:var(--muted);cursor:pointer;padding:0 6px;transition:all .2s}
+.prod-sizes span:hover{border-color:var(--accent);color:var(--accent)}
 
-/* SPLIT BANNER */
-.split{display:grid;grid-template-columns:1fr 1fr;min-height:380px;margin:0 -48px}
-.split-text{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;background:var(--bg2)}
-.split-text h2{font-family:var(--serif);font-size:30px;font-weight:400;margin-bottom:12px;line-height:1.2}
-.split-text p{color:var(--muted);font-size:14px;margin-bottom:28px;font-weight:300;line-height:1.7;max-width:380px}
-.split-img{background:linear-gradient(145deg,#d8cfc5,#c4b8ac);display:flex;align-items:center;justify-content:center}
-.split-img .ph{color:rgba(0,0,0,.1);font-size:14px;letter-spacing:2px;text-transform:uppercase}
+.promo-banner{margin:64px 0;border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:360px}
+.promo-text{padding:56px 48px;display:flex;flex-direction:column;justify-content:center;background:var(--bg2)}
+.promo-text h2{font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:12px;line-height:1.2}
+.promo-text p{color:var(--muted);font-size:14px;margin-bottom:24px;font-weight:300;line-height:1.6}
+.promo-img{position:relative;overflow:hidden}
+.promo-img img{width:100%;height:100%;object-fit:cover}
 
-/* DELIVERY */
-.del-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.del-item{border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:all .3s}
-.del-item:hover{border-color:var(--accent);box-shadow:0 8px 24px rgba(158,124,107,.08)}
-.del-item .d-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.del-item .d-ico{font-size:24px}
-.del-item h4{font-size:15px;font-weight:600}
-.del-item p{font-size:13px;color:var(--muted);font-weight:300;line-height:1.5;margin-bottom:10px}
-.del-item .d-cost{font-weight:600;font-size:13px;color:var(--accent-dark)}
-.del-footer{margin-top:20px;padding:16px 20px;background:var(--bg2);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;gap:24px;font-size:13px;color:var(--muted);flex-wrap:wrap}
-.del-footer strong{color:var(--text)}
+.del-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.del-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:32px 24px;text-align:center;transition:all .3s}
+.del-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,147,122,.1)}
+.del-card .di{font-size:32px;margin-bottom:14px}
+.del-card h4{font-family:var(--serif);font-size:19px;font-weight:400;margin-bottom:6px}
+.del-card p{font-size:13px;color:var(--muted);font-weight:300;margin-bottom:12px;line-height:1.5}
+.del-card .cost{color:var(--accent-dark);font-weight:600;font-size:14px}
+.del-note{text-align:center;margin-top:24px;padding:16px;background:var(--bg2);border-radius:var(--radius-sm);font-size:13px;color:var(--muted)}
+.del-note strong{color:var(--accent-dark)}
 
-/* TRUST BAR */
-.trust-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 48px}
-.trust-row{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.t-item{display:flex;gap:14px;align-items:flex-start}
-.t-ico{width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.t-item h5{font-size:13px;font-weight:600;margin-bottom:2px}
-.t-item p{font-size:11px;color:var(--muted);font-weight:300;line-height:1.4}
+.trust{padding:64px 40px;background:var(--bg2)}
+.trust-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.trust-item{text-align:center;padding:24px 16px}
+.trust-icon{width:52px;height:52px;border-radius:50%;background:var(--card);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 16px rgba(0,0,0,.04)}
+.trust-item h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.trust-item p{font-size:12px;color:var(--muted);font-weight:300;line-height:1.5}
 
-/* NEWSLETTER */
-.nl-sec{padding:72px 48px;text-align:center;background:var(--text);color:#fff}
-.nl-sec h2{font-family:var(--serif);font-size:30px;font-weight:400;margin-bottom:8px}
-.nl-sec .nl-sub{color:rgba(255,255,255,.45);font-size:13px;margin-bottom:28px;font-weight:300}
-.nl-bar{display:flex;max-width:420px;margin:0 auto;border:1px solid rgba(255,255,255,.15);border-radius:var(--radius)}
-.nl-bar input{flex:1;padding:13px 16px;background:transparent;border:none;color:#fff;font-family:var(--sans);font-size:14px;outline:none}
-.nl-bar input::placeholder{color:rgba(255,255,255,.3)}
-.nl-bar button{padding:13px 22px;background:var(--accent);border:none;color:#fff;font-family:var(--sans);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-weight:600;border-radius:0 var(--radius) var(--radius) 0;transition:background .3s}
-.nl-bar button:hover{background:var(--accent-dark)}
+.nl{padding:72px 40px;text-align:center;background:linear-gradient(135deg,#3a2f2b,#4d3e38);color:#fff}
+.nl h2{font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:8px}
+.nl p{color:rgba(255,255,255,.55);font-size:14px;margin-bottom:28px;font-weight:300}
+.nl-form{display:flex;max-width:440px;margin:0 auto}
+.nl-form input{flex:1;padding:14px 18px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fff;font-family:var(--sans);font-size:14px;border-radius:var(--radius-sm) 0 0 var(--radius-sm);outline:none}
+.nl-form input::placeholder{color:rgba(255,255,255,.35)}
+.nl-form button{padding:14px 24px;background:var(--accent);color:#fff;border:none;font-family:var(--sans);font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-weight:600;transition:background .3s}
 
-/* FOOTER */
-footer{background:#1a1a1a;color:rgba(255,255,255,.5);padding:56px 48px 24px}
-.ft-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.ft-brand .logo{color:#fff;display:inline-block;margin-bottom:12px}
-.ft-brand p{font-size:12px;line-height:1.7;font-weight:300}
-footer h6{color:rgba(255,255,255,.75);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;font-weight:600}
-footer ul{list-style:none}
-footer li{margin-bottom:8px}
-footer a{color:rgba(255,255,255,.4);text-decoration:none;font-size:12px;font-weight:300;transition:color .3s}
-footer a:hover{color:var(--accent)}
-.ft-bottom{max-width:1400px;margin:0 auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;font-size:10px;flex-wrap:wrap;gap:12px}
-.ft-pay{display:flex;gap:8px}
-.ft-pay span{padding:3px 8px;border:1px solid rgba(255,255,255,.1);font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.5px}
+footer{background:#3a2f2b;color:rgba(255,255,255,.55);padding:56px 40px 28px}
+.f-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.f-brand .logo{color:#fff;display:inline-block;margin-bottom:14px}
+.f-brand p{font-size:13px;line-height:1.7;font-weight:300}
+footer h5{color:rgba(255,255,255,.8);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+footer ul{list-style:none}footer li{margin-bottom:9px}
+footer a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px;font-weight:300;transition:color .3s}
+footer a:hover{color:var(--accent-light)}
+.f-bottom{max-width:1320px;margin:0 auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:11px;flex-wrap:wrap;gap:12px}
+.f-pay{display:flex;gap:8px}
+.f-pay span{padding:4px 10px;border:1px solid rgba(255,255,255,.12);border-radius:4px;font-size:10px;color:rgba(255,255,255,.4)}
 
-/* STYLE LABEL */
-.style-label{position:fixed;top:50%;right:0;transform:translateY(-50%) rotate(-90deg) translateX(50%);transform-origin:right center;background:var(--text);color:#fff;padding:8px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;border-radius:0 0 6px 6px;z-index:999}
+.style-label{position:fixed;top:50%;right:0;transform:translateY(-50%) rotate(-90deg) translateX(50%);transform-origin:right center;background:var(--accent);color:#fff;padding:8px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;border-radius:0 0 8px 8px;z-index:999}
 
-/* RESPONSIVE */
-@media(max-width:1024px){
-  .hero{grid-template-columns:1fr}
-  .hero-right{min-height:340px}
-  .hero-left{padding:56px 40px}
-  .cat-grid,.p-grid{grid-template-columns:repeat(2,1fr)}
-  .del-row{grid-template-columns:repeat(2,1fr)}
-  .trust-row{grid-template-columns:repeat(2,1fr)}
-  .split{grid-template-columns:1fr;margin:0 -48px}
-  .ft-grid{grid-template-columns:1fr 1fr}
-  .h-row{padding:0 24px}
-  .h-left{gap:16px}
-}
-@media(max-width:768px){
-  .h-left{display:none}
-  .mob-menu{display:block}
-  .h-row{grid-template-columns:auto 1fr auto;gap:16px}
-  .logo{text-align:left}
-  .sec{padding:48px 24px}
-  .hero-left{padding:40px 24px}
-  .hero h1{font-size:36px}
-  .p-grid{grid-template-columns:1fr 1fr}
-  .cat-grid{grid-template-columns:1fr 1fr}
-  .del-row{grid-template-columns:1fr}
-  .trust-row{grid-template-columns:1fr}
-  .trust-bar{padding:32px 24px}
-  .split{margin:0 -24px}
-  .split-text{padding:40px 24px}
-  .ft-grid{grid-template-columns:1fr}
-  .ft-bottom{flex-direction:column;text-align:center}
-  .sec-head{flex-direction:column;align-items:flex-start;gap:8px}
-}
-@media(max-width:480px){
-  .p-grid{grid-template-columns:1fr}
-  .cat-grid{grid-template-columns:1fr}
-}
+@media(max-width:1024px){.hero{grid-template-columns:1fr}.hero-visual{min-height:360px}.hero-text{padding:48px 40px}.cat-row,.prod-grid{grid-template-columns:repeat(2,1fr)}.trust-grid,.del-cards{grid-template-columns:repeat(2,1fr)}.promo-banner{grid-template-columns:1fr}.f-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-inner{display:none}.mobile-toggle{display:block}.h-top{padding:14px 20px}.section{padding:48px 20px}.hero-text{padding:40px 24px}.hero h1{font-size:34px}.prod-grid,.cat-row{grid-template-columns:1fr 1fr}.del-cards,.trust-grid{grid-template-columns:1fr}.f-grid{grid-template-columns:1fr}.f-bottom{flex-direction:column;text-align:center}.shipping-bar{margin:20px 16px;padding:16px 20px;flex-direction:column}}
+@media(max-width:480px){.prod-grid,.cat-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
-<div class="style-label">Вариант B — Минимализм</div>
-
-<!-- TOPBAR -->
-<div class="topbar">Бесплатная доставка от <strong>10 000 ₽</strong> &nbsp;·&nbsp; Оплата картой МИР &nbsp;·&nbsp; Возврат 14 дней</div>
-
-<!-- HEADER -->
+<div class="style-label">Вариант A — Мягкий</div>
+<div class="announce">🎁 Бесплатная доставка при заказе от <strong>10 000 ₽</strong> по всей России</div>
 <header>
-  <div class="h-row">
-    <div class="h-left">
-      <button class="mob-menu">
-        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/></svg>
-      </button>
-      <a href="#">Каталог</a>
-      <a href="#">Новинки</a>
-      <a href="#">Комплекты</a>
-      <a href="#">Sale</a>
-    </div>
-    <a href="#" class="logo"><em>Intimo</em></a>
-    <div class="h-right">
-      <button class="h-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 5 5"/></svg>
-      </button>
-      <button class="h-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </button>
-      <button class="h-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        <span class="cnt">(0)</span>
-      </button>
+  <div class="h-top">
+    <button class="mobile-toggle"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+    <a href="#" class="logo"><i>Intimo</i></a>
+    <div class="h-actions">
+      <button class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 5 5"/></svg></button>
+      <button class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+      <button class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="badge">0</span></button>
     </div>
   </div>
+  <nav><div class="nav-inner"><a href="#">Новинки</a><a href="#">Бюстгальтеры</a><a href="#">Трусы</a><a href="#">Комплекты</a><a href="#">Домашняя одежда</a><a href="#">Sale</a></div></nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-label">SS — 2026</div>
-    <h1>Близость<br>к <em>совершенству</em></h1>
-    <p class="sub">Итальянская эстетика в каждой детали. Бельё, которое не чувствуешь на себе — только комфорт и уверенность.</p>
-    <div class="hero-actions">
-      <a href="#" class="btn btn-dark">Каталог →</a>
-      <a href="#" class="btn btn-line">Новинки</a>
-    </div>
+  <div class="hero-text">
+    <div class="hero-tag">Коллекция Весна-Лето</div>
+    <h1>Нежность,<br>которая <em>ближе</em><br>к телу</h1>
+    <p>Женское бельё из натуральных тканей. Комфорт на каждый день, элегантность — для особых моментов.</p>
+    <div class="hero-btns"><a href="#" class="btn btn-fill">Смотреть каталог</a><a href="#" class="btn btn-ghost">Новая коллекция</a></div>
   </div>
-  <div class="hero-right">
-    <div class="hero-placeholder">фото модели</div>
+  <div class="hero-visual">
+    <img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=800&h=1000&fit=crop&crop=center" alt="">
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span>Бесплатная доставка от <strong>10 000 ₽</strong></span>
-    <span>Натуральные ткани</span>
-    <span>Оплата картой <strong>МИР</strong></span>
-    <span>Возврат 14 дней</span>
-    <span>Доставка СДЭК & Почта России</span>
-    <span>Бесплатная доставка от <strong>10 000 ₽</strong></span>
-    <span>Натуральные ткани</span>
-    <span>Оплата картой <strong>МИР</strong></span>
-    <span>Возврат 14 дней</span>
-    <span>Доставка СДЭК & Почта России</span>
-  </div>
+<div class="shipping-bar">
+  <span>🚚</span>
+  <p>Заказы от <strong>10 000 ₽</strong> доставляем бесплатно · Оплата картой МИР после оформления</p>
 </div>
 
-<!-- CATEGORIES -->
-<section class="sec">
-  <div class="sec-head">
-    <div><h2>Категории</h2><div class="sec-sub">Найдите своё идеальное бельё</div></div>
-    <a href="#">Смотреть все →</a>
-  </div>
-  <div class="cat-grid">
-    <div class="cat-block"><div class="cat-bg"></div><div class="cat-ov"></div><div class="cat-info"><h3>Бюстгальтеры</h3><span>24 модели</span></div></div>
-    <div class="cat-block"><div class="cat-bg"></div><div class="cat-ov"></div><div class="cat-info"><h3>Трусы</h3><span>32 модели</span></div></div>
-    <div class="cat-block"><div class="cat-bg"></div><div class="cat-ov"></div><div class="cat-info"><h3>Комплекты</h3><span>18 комплектов</span></div></div>
-    <div class="cat-block"><div class="cat-bg"></div><div class="cat-ov"></div><div class="cat-info"><h3>Домашнее</h3><span>12 моделей</span></div></div>
+<section class="section">
+  <div class="s-header"><h2>Коллекции</h2><p>Выберите свою категорию</p><div class="dot"></div></div>
+  <div class="cat-row">
+    <div class="cat-tile"><img src="https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=500&h=700&fit=crop" alt=""><div class="overlay"></div><div class="cat-label"><h3>Бюстгальтеры</h3><span>24 модели</span></div></div>
+    <div class="cat-tile"><img src="https://images.unsplash.com/photo-1617331140800-e6a50e5e01f5?w=500&h=700&fit=crop" alt=""><div class="overlay"></div><div class="cat-label"><h3>Трусы</h3><span>32 модели</span></div></div>
+    <div class="cat-tile"><img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=500&h=700&fit=crop" alt=""><div class="overlay"></div><div class="cat-label"><h3>Комплекты</h3><span>18 комплектов</span></div></div>
+    <div class="cat-tile"><img src="https://images.unsplash.com/photo-1631048005681-7059ac11cce7?w=500&h=700&fit=crop" alt=""><div class="overlay"></div><div class="cat-label"><h3>Домашнее</h3><span>12 моделей</span></div></div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="sec" style="padding-top:0">
-  <div class="sec-head">
-    <div><h2>Новинки</h2><div class="sec-sub">Только что поступили в продажу</div></div>
-    <a href="#">Все товары →</a>
-  </div>
-  <div class="p-grid" id="pgrid"></div>
+<section class="section" style="padding-top:0">
+  <div class="s-header"><h2>Популярное</h2><p>Бестселлеры этого сезона</p><div class="dot"></div></div>
+  <div class="prod-grid" id="grid"></div>
 </section>
 
-<!-- SPLIT BANNER -->
-<section class="sec" style="padding-top:0">
-  <div class="split">
-    <div class="split-text">
-      <h2>Комплекты<br>со скидкой до −30%</h2>
-      <p>Собирайте образы: бюстгальтер + трусики по сниженной цене. Ограниченное предложение этого месяца.</p>
-      <a href="#" class="btn btn-dark">Подобрать комплект</a>
+<section class="section" style="padding-top:0">
+  <div class="promo-banner">
+    <div class="promo-text">
+      <h2>Комплекты со скидкой до <span style="color:var(--accent)">−30%</span></h2>
+      <p>Бюстгальтер + трусики по специальной цене. Только до конца месяца.</p>
+      <a href="#" class="btn btn-fill">Подобрать комплект</a>
     </div>
-    <div class="split-img"><div class="ph">фото</div></div>
+    <div class="promo-img"><img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=700&h=500&fit=crop" alt=""></div>
   </div>
 </section>
 
-<!-- DELIVERY -->
-<section class="sec">
-  <div class="sec-head">
-    <div><h2>Доставка</h2><div class="sec-sub">Отправляем по всей России</div></div>
+<section class="section" style="padding-top:0">
+  <div class="s-header"><h2>Доставка</h2><p>Отправляем по всей России</p><div class="dot"></div></div>
+  <div class="del-cards">
+    <div class="del-card"><div class="di">📦</div><h4>СДЭК</h4><p>Пункт выдачи или курьер. 2–5 дней.</p><div class="cost">от 290 ₽</div></div>
+    <div class="del-card"><div class="di">✉️</div><h4>Почта России</h4><p>Первый класс, любой населённый пункт. 5–10 дней.</p><div class="cost">от 250 ₽</div></div>
+    <div class="del-card"><div class="di">⚡</div><h4>Курьер Москва / СПб</h4><p>В день заказа или на следующий.</p><div class="cost">от 350 ₽</div></div>
   </div>
-  <div class="del-row">
-    <div class="del-item">
-      <div class="d-head"><span class="d-ico">📦</span><h4>СДЭК</h4></div>
-      <p>Пункт выдачи или курьер до двери. Срок 2–5 рабочих дней.</p>
-      <div class="d-cost">от 290 ₽</div>
-    </div>
-    <div class="del-item">
-      <div class="d-head"><span class="d-ico">✉️</span><h4>Почта России</h4></div>
-      <p>Первый класс, любой населённый пункт. Срок 5–10 дней.</p>
-      <div class="d-cost">от 250 ₽</div>
-    </div>
-    <div class="del-item">
-      <div class="d-head"><span class="d-ico">⚡</span><h4>Курьер Москва / СПб</h4></div>
-      <p>Экспресс в день заказа или на следующий.</p>
-      <div class="d-cost">от 350 ₽</div>
-    </div>
-  </div>
-  <div class="del-footer">
-    <span>💳 Оплата картой <strong>МИР</strong> после оформления</span>
-    <span>🚚 Бесплатно от <strong>10 000 ₽</strong></span>
-    <span>↩ Возврат <strong>14 дней</strong></span>
-  </div>
+  <div class="del-note">💳 Оплата картой <strong>МИР</strong> после оформления · Бесплатная доставка от <strong>10 000 ₽</strong></div>
 </section>
 
-<!-- TRUST -->
-<section class="trust-bar">
-  <div class="trust-row">
-    <div class="t-item"><div class="t-ico">✦</div><div><h5>Натуральные ткани</h5><p>Хлопок, модал, шёлк</p></div></div>
-    <div class="t-item"><div class="t-ico">↩</div><div><h5>Возврат 14 дней</h5><p>Бесплатный обмен размера</p></div></div>
-    <div class="t-item"><div class="t-ico">🔒</div><div><h5>Безопасная оплата</h5><p>Защищённый платёжный шлюз</p></div></div>
-    <div class="t-item"><div class="t-ico">📦</div><div><h5>Быстрая доставка</h5><p>СДЭК, Почта, курьер</p></div></div>
-  </div>
-</section>
+<section class="trust"><div class="trust-grid">
+  <div class="trust-item"><div class="trust-icon">✦</div><h4>Натуральные ткани</h4><p>Хлопок, модал, шёлк</p></div>
+  <div class="trust-item"><div class="trust-icon">↩</div><h4>Возврат 14 дней</h4><p>Бесплатный обмен размера</p></div>
+  <div class="trust-item"><div class="trust-icon">🔒</div><h4>Безопасная оплата</h4><p>Защищённый платёжный шлюз</p></div>
+  <div class="trust-item"><div class="trust-icon">🎁</div><h4>Подарочная упаковка</h4><p>Стильная коробка с лентой</p></div>
+</div></section>
 
-<!-- NEWSLETTER -->
-<section class="nl-sec">
-  <h2>Подписка на новинки</h2>
-  <p class="nl-sub">Получите скидку 10% на первый заказ</p>
-  <div class="nl-bar">
-    <input type="email" placeholder="Ваш e-mail">
-    <button>Подписаться</button>
-  </div>
-</section>
+<section class="nl"><h2>Будьте в курсе</h2><p>Подпишитесь и получите скидку 10% на первый заказ</p><div class="nl-form"><input type="email" placeholder="Ваш e-mail"><button>Подписаться</button></div></section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="ft-grid">
-    <div class="ft-brand">
-      <a href="#" class="logo"><em>Intimo</em></a>
-      <p>Интернет-магазин женского нижнего белья. Натуральные ткани, продуманные лекала, доставка по всей России. ИП Иванова А.А.</p>
-    </div>
-    <div>
-      <h6>Каталог</h6>
-      <ul>
-        <li><a href="#">Бюстгальтеры</a></li>
-        <li><a href="#">Трусы</a></li>
-        <li><a href="#">Комплекты</a></li>
-        <li><a href="#">Домашняя одежда</a></li>
-        <li><a href="#">Sale</a></li>
-      </ul>
-    </div>
-    <div>
-      <h6>Информация</h6>
-      <ul>
-        <li><a href="#">Доставка и оплата</a></li>
-        <li><a href="#">Обмен и возврат</a></li>
-        <li><a href="#">Размерная сетка</a></li>
-        <li><a href="#">О нас</a></li>
-      </ul>
-    </div>
-    <div>
-      <h6>Контакты</h6>
-      <ul>
-        <li><a href="#">+7 (999) 123-45-67</a></li>
-        <li><a href="#">hello@intimo.ru</a></li>
-        <li><a href="#">Telegram</a></li>
-        <li><a href="#">WhatsApp</a></li>
-      </ul>
-    </div>
+  <div class="f-grid">
+    <div class="f-brand"><a href="#" class="logo"><i>Intimo</i></a><p>Интернет-магазин женского нижнего белья. Натуральные ткани, продуманные лекала, доставка по всей России.</p></div>
+    <div><h5>Каталог</h5><ul><li><a href="#">Бюстгальтеры</a></li><li><a href="#">Трусы</a></li><li><a href="#">Комплекты</a></li><li><a href="#">Домашняя одежда</a></li><li><a href="#">Sale</a></li></ul></div>
+    <div><h5>Покупателям</h5><ul><li><a href="#">Доставка и оплата</a></li><li><a href="#">Обмен и возврат</a></li><li><a href="#">Размерная сетка</a></li><li><a href="#">FAQ</a></li></ul></div>
+    <div><h5>Контакты</h5><ul><li><a href="#">+7 (999) 123-45-67</a></li><li><a href="#">hello@intimo.ru</a></li><li><a href="#">Telegram</a></li><li><a href="#">WhatsApp</a></li></ul></div>
   </div>
-  <div class="ft-bottom">
-    <span>© 2026 Intimo · Все права защищены</span>
-    <div class="ft-pay"><span>МИР</span><span>СБП</span></div>
-  </div>
+  <div class="f-bottom"><span>© 2026 Intimo. Все права защищены.</span><div class="f-pay"><span>МИР</span><span>СБП</span></div></div>
 </footer>
 
 <script>
-const products=[
-  {name:'Бралетт «Нежность»',brand:'Intimo',price:'2 490 ₽',old:'',sizes:['XS','S','M','L'],tag:'new'},
-  {name:'Комплект «Классика»',brand:'Intimo',price:'4 290 ₽',old:'5 490 ₽',sizes:['S','M','L'],tag:'sale'},
-  {name:'Трусики бикини «Хлопок»',brand:'Intimo Basic',price:'990 ₽',old:'',sizes:['XS','S','M','L','XL'],tag:''},
-  {name:'Бюстгальтер пуш-ап',brand:'Intimo',price:'3 290 ₽',old:'',sizes:['70B','75B','75C','80B'],tag:'new'},
-  {name:'Пижама «Уют»',brand:'Intimo Home',price:'5 990 ₽',old:'7 490 ₽',sizes:['S','M','L'],tag:'sale'},
-  {name:'Комплект «Кружево»',brand:'Intimo',price:'3 790 ₽',old:'',sizes:['S','M','L'],tag:''},
-  {name:'Стринги микрофибра',brand:'Intimo Basic',price:'690 ₽',old:'',sizes:['XS','S','M','L'],tag:''},
-  {name:'Халат «Утро»',brand:'Intimo Home',price:'4 490 ₽',old:'',sizes:['S/M','L/XL'],tag:'new'},
-];
-document.getElementById('pgrid').innerHTML=products.map(p=>`
-  <div class="p-card">
-    <div class="p-thumb-wrap">
-      <div class="p-thumb"><div class="ico">◇</div></div>
-      ${p.tag==='new'?'<span class="p-label lb-new">New</span>':''}
-      ${p.tag==='sale'?'<span class="p-label lb-sale">−30%</span>':''}
-      <button class="p-wish"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C12 21 4 15 4 8.5C4 5.5 6.5 3 9.5 3C11 3 12 4 12 4S13 3 14.5 3C17.5 3 20 5.5 20 8.5C20 15 12 21 12 21Z"/></svg></button>
-      <div class="p-cart-bar">В корзину</div>
-    </div>
-    <div class="p-meta">
-      <div class="p-brand">${p.brand}</div>
-      <div class="p-name">${p.name}</div>
-      <div class="p-price"><span class="cur">${p.price}</span>${p.old?'<span class="old">'+p.old+'</span>':''}</div>
-      <div class="p-sizes">${p.sizes.map(s=>'<span>'+s+'</span>').join('')}</div>
-    </div>
-  </div>
-`).join('');
+const IMG=['https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400&h=540&fit=crop','https://images.unsplash.com/photo-1582142839970-2b9e04b60f65?w=400&h=540&fit=crop','https://images.unsplash.com/photo-1617331140800-e6a50e5e01f5?w=400&h=540&fit=crop','https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=400&h=540&fit=crop','https://images.unsplash.com/photo-1631048005681-7059ac11cce7?w=400&h=540&fit=crop','https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400&h=540&fit=crop','https://images.unsplash.com/photo-1571508601891-ca5e7a713859?w=400&h=540&fit=crop','https://images.unsplash.com/photo-1586105251261-72a756497a11?w=400&h=540&fit=crop'];
+const P=[{name:'Бралетт «Нежность»',brand:'Intimo',price:'2 490 ₽',old:'',sizes:['XS','S','M','L'],tag:'new'},{name:'Комплект «Классика»',brand:'Intimo',price:'4 290 ₽',old:'5 490 ₽',sizes:['S','M','L'],tag:'sale'},{name:'Трусики бикини',brand:'Intimo Basic',price:'990 ₽',old:'',sizes:['XS','S','M','L','XL'],tag:''},{name:'Бюстгальтер пуш-ап',brand:'Intimo',price:'3 290 ₽',old:'',sizes:['70B','75B','75C','80B'],tag:'new'},{name:'Пижама «Уют»',brand:'Intimo Home',price:'5 990 ₽',old:'7 490 ₽',sizes:['S','M','L'],tag:'sale'},{name:'Комплект «Кружево»',brand:'Intimo',price:'3 790 ₽',old:'',sizes:['S','M','L'],tag:''},{name:'Стринги микрофибра',brand:'Intimo Basic',price:'690 ₽',old:'',sizes:['XS','S','M','L'],tag:''},{name:'Халат «Утро»',brand:'Intimo Home',price:'4 490 ₽',old:'',sizes:['S/M','L/XL'],tag:'new'}];
+document.getElementById('grid').innerHTML=P.map((p,i)=>`<div class="prod-card"><div class="prod-img"><img src="${IMG[i]}" alt="${p.name}">${p.tag==='new'?'<span class="tag tag-new">New</span>':''}${p.tag==='sale'?'<span class="tag tag-sale">−30%</span>':''}<button class="wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C12 21 4 15 4 8.5C4 5.5 6.5 3 9.5 3C11 3 12 4 12 4S13 3 14.5 3C17.5 3 20 5.5 20 8.5C20 15 12 21 12 21Z"/></svg></button><div class="add-bar">+ В корзину</div></div><div class="prod-body"><div class="prod-brand">${p.brand}</div><div class="prod-name">${p.name}</div><div class="prod-prices"><span class="now">${p.price}</span>${p.old?'<span class="was">'+p.old+'</span>':''}</div><div class="prod-sizes">${p.sizes.map(s=>'<span>'+s+'</span>').join('')}</div></div></div>`).join('');
 </script>
 </body>
 </html>
