@@ -3,39 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INTIMO — Вариант B</title>
+<title>Bellissimo Lingerie — Будуарное нижнее бельё</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#fdf9f6;--bg2:#faf3ed;--text:#3a2f2b;--accent:#d4937a;--accent-light:#f0c9b8;
-  --accent-dark:#b87560;--card:#fff;--border:#ede4dc;--muted:#9e8e85;
+  --bg:#fdf9f6;--bg2:#faf3ed;--text:#3a2f2b;--accent:#c9748a;--accent-light:#f0c8d2;
+  --accent-dark:#a55570;--card:#fff;--border:#ede4dc;--muted:#9e8e85;
   --serif:'Playfair Display',Georgia,serif;--sans:'Nunito Sans',sans-serif;
   --radius:16px;--radius-sm:10px;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 
+/* ── Announce ── */
 .announce{background:var(--accent);color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-weight:400;letter-spacing:.5px}
 .announce strong{font-weight:600}
 
-header{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(253,249,246,.92)}
+/* ── Header ── */
+header{background:rgba(253,249,246,.94);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
 .h-top{max-width:1320px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--serif);font-size:30px;font-weight:400;letter-spacing:3px;color:var(--text);text-decoration:none}
-.logo i{color:var(--accent);font-style:italic}
+.logo{font-family:var(--serif);font-size:24px;font-weight:400;letter-spacing:2px;color:var(--text);text-decoration:none;display:flex;flex-direction:column;align-items:center;line-height:1.1}
+.logo .logo-main{font-style:italic;color:var(--accent);font-size:28px;letter-spacing:3px}
+.logo .logo-sub{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);font-style:normal;font-family:var(--sans);font-weight:300}
 .h-actions{display:flex;gap:20px;align-items:center}
 .h-icon{background:none;border:none;cursor:pointer;color:var(--text);display:flex;align-items:center;gap:6px;font-size:13px;font-family:var(--sans);transition:color .3s}
 .h-icon:hover{color:var(--accent)}
 .h-icon svg{width:20px;height:20px}
 .h-icon .badge{background:var(--accent);color:#fff;font-size:10px;width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-left:2px}
 nav{background:var(--bg);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1320px;margin:0 auto;padding:0 40px;display:flex;gap:32px;justify-content:center}
-.nav-inner a{display:inline-block;padding:14px 0;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;color:var(--text);font-weight:500;position:relative;transition:color .3s}
+.nav-inner{max-width:1320px;margin:0 auto;padding:0 40px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.nav-inner a{display:inline-block;padding:13px 0;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;text-decoration:none;color:var(--text);font-weight:500;position:relative;transition:color .3s}
 .nav-inner a:hover{color:var(--accent)}
-.nav-inner a::after{content:'';position:absolute;bottom:10px;left:0;width:0;height:2px;background:var(--accent);border-radius:1px;transition:width .3s}
+.nav-inner a::after{content:'';position:absolute;bottom:9px;left:0;width:0;height:2px;background:var(--accent);border-radius:1px;transition:width .3s}
 .nav-inner a:hover::after{width:100%}
 .mobile-toggle{display:none;background:none;border:none;cursor:pointer}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;padding:24px;flex-direction:column;gap:16px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:18px;font-family:var(--serif);color:var(--text);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--border)}
+.mobile-menu .close{align-self:flex-end;background:none;border:none;font-size:28px;cursor:pointer;color:var(--muted)}
 
+/* ── Hero ── */
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:600px;overflow:hidden}
 .hero-text{display:flex;flex-direction:column;justify-content:center;padding:60px 60px 60px 80px;background:var(--bg2)}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-dark);margin-bottom:24px;font-weight:600}
@@ -51,39 +59,47 @@ nav{background:var(--bg);border-bottom:1px solid var(--border)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 .hero-visual{position:relative;overflow:hidden}
 .hero-visual img{width:100%;height:100%;object-fit:cover}
+.hero-visual .hero-badge{position:absolute;bottom:32px;right:32px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:12px;padding:16px 20px;text-align:center;font-size:12px;color:var(--muted)}
+.hero-badge strong{display:block;font-family:var(--serif);font-size:20px;color:var(--accent);font-weight:400}
 
-.shipping-bar{background:var(--bg2);border:1.5px dashed var(--accent-light);border-radius:var(--radius);max-width:1320px;margin:40px auto;padding:20px 32px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;text-align:center}
+/* ── Shipping bar ── */
+.shipping-bar{background:var(--bg2);border:1.5px dashed var(--accent-light);border-radius:var(--radius);max-width:1320px;margin:40px auto;padding:20px 32px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;text-align:center}
 .shipping-bar p{font-size:14px;color:var(--text);font-weight:400}
 .shipping-bar strong{color:var(--accent-dark);font-weight:600}
+.ship-divider{width:1px;height:24px;background:var(--border)}
 
+/* ── Sections ── */
 .section{padding:72px 40px;max-width:1320px;margin:0 auto}
 .s-header{text-align:center;margin-bottom:48px}
 .s-header h2{font-family:var(--serif);font-size:34px;font-weight:300;margin-bottom:8px}
 .s-header p{color:var(--muted);font-size:14px;font-weight:300}
 .s-header .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);margin:14px auto 0}
 
-.cat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.cat-tile{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:2.8/4;cursor:pointer;transition:transform .4s}
+/* ── Categories ── */
+.cat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.cat-row-2{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:14px}
+.cat-tile{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:2/3;cursor:pointer;transition:transform .4s}
 .cat-tile:hover{transform:scale(1.02)}
 .cat-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .cat-tile:hover img{transform:scale(1.06)}
-.cat-tile .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(58,47,43,.6) 0%,transparent 50%);z-index:1}
-.cat-tile .cat-label{position:absolute;bottom:24px;left:24px;z-index:2;color:#fff}
-.cat-label h3{font-family:var(--serif);font-size:20px;font-weight:400;margin-bottom:2px}
-.cat-label span{font-size:11px;opacity:.75;letter-spacing:1px;text-transform:uppercase}
+.cat-tile .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(58,47,43,.65) 0%,transparent 55%);z-index:1}
+.cat-tile .cat-label{position:absolute;bottom:18px;left:18px;z-index:2;color:#fff}
+.cat-label h3{font-family:var(--serif);font-size:17px;font-weight:400;margin-bottom:2px}
+.cat-label span{font-size:10px;opacity:.7;letter-spacing:1px;text-transform:uppercase}
 
+/* ── Products ── */
 .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.prod-card{background:var(--card);border-radius:var(--radius);overflow:hidden;transition:transform .4s,box-shadow .4s}
+.prod-card{background:var(--card);border-radius:var(--radius);overflow:hidden;transition:transform .4s,box-shadow .4s;cursor:pointer}
 .prod-card:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(58,47,43,.08)}
 .prod-img{aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--bg2)}
 .prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .prod-card:hover .prod-img img{transform:scale(1.05)}
 .prod-img .tag{position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:6px;font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:600;z-index:2}
 .tag-new{background:var(--accent);color:#fff}.tag-sale{background:#c45c5c;color:#fff}
-.prod-img .wishlist{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;z-index:2}
+.wishlist{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.85);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;z-index:2}
 .prod-card:hover .wishlist{opacity:1}
 .wishlist svg{width:18px;height:18px;color:var(--accent)}
-.prod-img .add-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(58,47,43,.88);color:#fff;padding:12px;text-align:center;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;transform:translateY(100%);transition:transform .35s;cursor:pointer;backdrop-filter:blur(4px);font-weight:500;z-index:2}
+.add-bar{position:absolute;bottom:0;left:0;right:0;background:rgba(58,47,43,.88);color:#fff;padding:12px;text-align:center;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;transform:translateY(100%);transition:transform .35s;cursor:pointer;backdrop-filter:blur(4px);font-weight:500;z-index:2}
 .prod-card:hover .add-bar{transform:translateY(0)}
 .prod-body{padding:18px 16px 20px}
 .prod-brand{font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px}
@@ -91,27 +107,31 @@ nav{background:var(--bg);border-bottom:1px solid var(--border)}
 .prod-prices{display:flex;align-items:center;gap:8px}
 .prod-prices .now{font-weight:600;font-size:15px}
 .prod-prices .was{font-size:13px;color:var(--muted);text-decoration:line-through}
-.prod-sizes{display:flex;gap:5px;margin-top:10px}
+.prod-sizes{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
 .prod-sizes span{min-width:30px;height:26px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:6px;font-size:10px;color:var(--muted);cursor:pointer;padding:0 6px;transition:all .2s}
 .prod-sizes span:hover{border-color:var(--accent);color:var(--accent)}
+.prod-cat{font-size:10px;color:var(--accent-light);letter-spacing:1px;text-transform:uppercase;margin-top:4px;background:var(--accent);background:linear-gradient(90deg,var(--accent),var(--accent-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600}
 
-.promo-banner{margin:64px 0;border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:360px}
+/* ── Promo ── */
+.promo-banner{margin:0;border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:360px}
 .promo-text{padding:56px 48px;display:flex;flex-direction:column;justify-content:center;background:var(--bg2)}
 .promo-text h2{font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:12px;line-height:1.2}
 .promo-text p{color:var(--muted);font-size:14px;margin-bottom:24px;font-weight:300;line-height:1.6}
 .promo-img{position:relative;overflow:hidden}
 .promo-img img{width:100%;height:100%;object-fit:cover}
 
+/* ── Delivery ── */
 .del-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .del-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:32px 24px;text-align:center;transition:all .3s}
-.del-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,147,122,.1)}
+.del-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 32px rgba(201,116,138,.1)}
 .del-card .di{font-size:32px;margin-bottom:14px}
 .del-card h4{font-family:var(--serif);font-size:19px;font-weight:400;margin-bottom:6px}
 .del-card p{font-size:13px;color:var(--muted);font-weight:300;margin-bottom:12px;line-height:1.5}
 .del-card .cost{color:var(--accent-dark);font-weight:600;font-size:14px}
-.del-note{text-align:center;margin-top:24px;padding:16px;background:var(--bg2);border-radius:var(--radius-sm);font-size:13px;color:var(--muted)}
+.del-note{text-align:center;margin-top:24px;padding:16px 24px;background:var(--bg2);border-radius:var(--radius-sm);font-size:13px;color:var(--muted);line-height:1.6}
 .del-note strong{color:var(--accent-dark)}
 
+/* ── Trust ── */
 .trust{padding:64px 40px;background:var(--bg2)}
 .trust-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .trust-item{text-align:center;padding:24px 16px}
@@ -119,162 +139,588 @@ nav{background:var(--bg);border-bottom:1px solid var(--border)}
 .trust-item h4{font-size:14px;font-weight:600;margin-bottom:4px}
 .trust-item p{font-size:12px;color:var(--muted);font-weight:300;line-height:1.5}
 
-.nl{padding:72px 40px;text-align:center;background:linear-gradient(135deg,#3a2f2b,#4d3e38);color:#fff}
+/* ── Social ── */
+.social-strip{max-width:1320px;margin:0 auto;padding:0 40px 72px;text-align:center}
+.social-strip h3{font-family:var(--serif);font-size:24px;font-weight:300;margin-bottom:6px}
+.social-strip p{font-size:13px;color:var(--muted);margin-bottom:28px;font-weight:300}
+.social-icons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.soc-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;text-decoration:none;transition:all .3s;font-family:var(--sans);border:1.5px solid var(--border);color:var(--text)}
+.soc-btn:hover{border-color:var(--accent);color:var(--accent)}
+.soc-btn svg{width:18px;height:18px}
+
+/* ── Newsletter ── */
+.nl{padding:72px 40px;text-align:center;background:linear-gradient(135deg,#3a2f2b,#5a3f48);color:#fff}
 .nl h2{font-family:var(--serif);font-size:32px;font-weight:300;margin-bottom:8px}
 .nl p{color:rgba(255,255,255,.55);font-size:14px;margin-bottom:28px;font-weight:300}
 .nl-form{display:flex;max-width:440px;margin:0 auto}
 .nl-form input{flex:1;padding:14px 18px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fff;font-family:var(--sans);font-size:14px;border-radius:var(--radius-sm) 0 0 var(--radius-sm);outline:none}
 .nl-form input::placeholder{color:rgba(255,255,255,.35)}
 .nl-form button{padding:14px 24px;background:var(--accent);color:#fff;border:none;font-family:var(--sans);font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-weight:600;transition:background .3s}
+.nl-form button:hover{background:var(--accent-dark)}
 
+/* ── Footer ── */
 footer{background:#3a2f2b;color:rgba(255,255,255,.55);padding:56px 40px 28px}
 .f-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.f-brand .logo{color:#fff;display:inline-block;margin-bottom:14px}
-.f-brand p{font-size:13px;line-height:1.7;font-weight:300}
+.f-brand .logo{color:#fff;display:inline-flex;flex-direction:column;align-items:flex-start;margin-bottom:16px;text-decoration:none;font-family:var(--serif)}
+.f-brand .logo .logo-main{color:var(--accent-light);font-style:italic;font-size:26px;letter-spacing:2px}
+.f-brand .logo .logo-sub{color:rgba(255,255,255,.3);font-size:8px;letter-spacing:3px;text-transform:uppercase;font-style:normal;font-family:var(--sans)}
+.f-brand p{font-size:13px;line-height:1.7;font-weight:300;max-width:280px}
 footer h5{color:rgba(255,255,255,.8);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;font-weight:600}
-footer ul{list-style:none}footer li{margin-bottom:9px}
+footer ul{list-style:none}
+footer li{margin-bottom:9px}
 footer a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px;font-weight:300;transition:color .3s}
 footer a:hover{color:var(--accent-light)}
+.f-contact-item{display:flex;align-items:center;gap:8px;margin-bottom:10px;color:rgba(255,255,255,.45);font-size:13px}
+.f-contact-item svg{width:14px;height:14px;flex-shrink:0;color:var(--accent-light)}
 .f-bottom{max-width:1320px;margin:0 auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:11px;flex-wrap:wrap;gap:12px}
 .f-pay{display:flex;gap:8px}
-.f-pay span{padding:4px 10px;border:1px solid rgba(255,255,255,.12);border-radius:4px;font-size:10px;color:rgba(255,255,255,.4)}
+.f-pay span{padding:4px 10px;border:1px solid rgba(255,255,255,.12);border-radius:4px;font-size:10px;color:rgba(255,255,255,.4);font-weight:500}
 
-.style-label{position:fixed;top:50%;right:0;transform:translateY(-50%) rotate(-90deg) translateX(50%);transform-origin:right center;background:var(--accent);color:#fff;padding:8px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;border-radius:0 0 8px 8px;z-index:999}
+/* ── Cart sidebar ── */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:300;opacity:0;pointer-events:none;transition:opacity .3s}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-sidebar{position:fixed;top:0;right:0;width:400px;max-width:100vw;height:100vh;background:var(--bg);z-index:301;transform:translateX(100%);transition:transform .4s;display:flex;flex-direction:column;box-shadow:-8px 0 32px rgba(0,0,0,.1)}
+.cart-sidebar.open{transform:translateX(0)}
+.cart-header{padding:24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.cart-header h3{font-family:var(--serif);font-size:22px;font-weight:400}
+.cart-close{background:none;border:none;cursor:pointer;color:var(--muted);font-size:24px;line-height:1}
+.cart-items{flex:1;overflow-y:auto;padding:24px}
+.cart-empty{text-align:center;color:var(--muted);padding:48px 24px;font-size:14px}
+.cart-empty .ei{font-size:48px;margin-bottom:16px}
+.cart-item{display:flex;gap:12px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.cart-item img{width:72px;height:96px;object-fit:cover;border-radius:8px;background:var(--bg2)}
+.cart-item-info{flex:1}
+.cart-item-name{font-family:var(--serif);font-size:14px;margin-bottom:4px}
+.cart-item-size{font-size:11px;color:var(--muted);margin-bottom:8px}
+.cart-item-price{font-weight:600;font-size:14px;color:var(--accent-dark)}
+.cart-item-remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;padding:0;line-height:1}
+.cart-footer{padding:24px;border-top:1px solid var(--border)}
+.cart-total{display:flex;justify-content:space-between;margin-bottom:8px;font-size:15px}
+.cart-total strong{font-weight:600}
+.delivery-note{font-size:12px;color:var(--muted);margin-bottom:16px;padding:10px 14px;background:var(--bg2);border-radius:8px;line-height:1.5}
+.delivery-note.free{background:#edf7ed;color:#3a7a3a}
+.cart-btn{width:100%;padding:16px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);font-family:var(--sans);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-weight:600;transition:background .3s}
+.cart-btn:hover{background:var(--accent-dark)}
 
-@media(max-width:1024px){.hero{grid-template-columns:1fr}.hero-visual{min-height:360px}.hero-text{padding:48px 40px}.cat-row,.prod-grid{grid-template-columns:repeat(2,1fr)}.trust-grid,.del-cards{grid-template-columns:repeat(2,1fr)}.promo-banner{grid-template-columns:1fr}.f-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:768px){.nav-inner{display:none}.mobile-toggle{display:block}.h-top{padding:14px 20px}.section{padding:48px 20px}.hero-text{padding:40px 24px}.hero h1{font-size:34px}.prod-grid,.cat-row{grid-template-columns:1fr 1fr}.del-cards,.trust-grid{grid-template-columns:1fr}.f-grid{grid-template-columns:1fr}.f-bottom{flex-direction:column;text-align:center}.shipping-bar{margin:20px 16px;padding:16px 20px;flex-direction:column}}
-@media(max-width:480px){.prod-grid,.cat-row{grid-template-columns:1fr}}
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr}
+  .hero-visual{min-height:360px}
+  .hero-text{padding:48px 40px}
+  .cat-row{grid-template-columns:repeat(3,1fr)}
+  .cat-row-2{grid-template-columns:repeat(2,1fr)}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .trust-grid,.del-cards{grid-template-columns:repeat(2,1fr)}
+  .promo-banner{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-inner{display:none}
+  .mobile-toggle{display:block}
+  .h-top{padding:14px 20px}
+  .section{padding:48px 20px}
+  .hero-text{padding:40px 24px}
+  .hero h1{font-size:34px}
+  .cat-row,.cat-row-2{grid-template-columns:repeat(2,1fr)}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .del-cards,.trust-grid{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .f-bottom{flex-direction:column;text-align:center}
+  .shipping-bar{margin:20px 16px;padding:16px 20px;flex-direction:column}
+  .ship-divider{display:none}
+  .social-strip{padding:0 20px 48px}
+}
+@media(max-width:480px){
+  .prod-grid,.cat-row,.cat-row-2{grid-template-columns:1fr 1fr}
+  .cart-sidebar{width:100vw}
+}
 </style>
 </head>
 <body>
-<div class="style-label">Вариант A — Мягкий</div>
+
+<!-- Announce -->
 <div class="announce">🎁 Бесплатная доставка при заказе от <strong>10 000 ₽</strong> по всей России</div>
+
+<!-- Header -->
 <header>
   <div class="h-top">
-    <button class="mobile-toggle"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
-    <a href="#" class="logo"><i>Intimo</i></a>
+    <button class="mobile-toggle" onclick="toggleMenu()">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+    <a href="#" class="logo">
+      <span class="logo-main">Bellissimo</span>
+      <span class="logo-sub">Lingerie</span>
+    </a>
     <div class="h-actions">
-      <button class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 5 5"/></svg></button>
-      <button class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
-      <button class="h-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="badge">0</span></button>
+      <button class="h-icon" title="Поиск">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 5 5"/></svg>
+      </button>
+      <button class="h-icon" title="Корзина" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="badge" id="cart-count">0</span>
+      </button>
     </div>
   </div>
-  <nav><div class="nav-inner"><a href="#">Новинки</a><a href="#">Бюстгальтеры</a><a href="#">Трусы</a><a href="#">Комплекты</a><a href="#">Домашняя одежда</a><a href="#">Sale</a></div></nav>
+  <nav>
+    <div class="nav-inner">
+      <a href="#">Новинки</a>
+      <a href="#">Комплекты</a>
+      <a href="#">Бюстгальтеры</a>
+      <a href="#">Боди</a>
+      <a href="#">Корсеты</a>
+      <a href="#">Пижамы</a>
+      <a href="#">Халаты</a>
+      <a href="#">Чулки</a>
+      <a href="#">Распродажа</a>
+    </div>
+  </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-text">
-    <div class="hero-tag">Коллекция Весна-Лето</div>
-    <h1>Нежность,<br>которая <em>ближе</em><br>к телу</h1>
-    <p>Женское бельё из натуральных тканей. Комфорт на каждый день, элегантность — для особых моментов.</p>
-    <div class="hero-btns"><a href="#" class="btn btn-fill">Смотреть каталог</a><a href="#" class="btn btn-ghost">Новая коллекция</a></div>
-  </div>
-  <div class="hero-visual">
-    <img src="https://quattrostagioni.quantico.express/shared/quattrostagioni/public/images/prod/MAD652564.jpg" alt="Lormar коллекция">
-  </div>
-</section>
-
-<div class="shipping-bar">
-  <span>🚚</span>
-  <p>Заказы от <strong>10 000 ₽</strong> доставляем бесплатно · Оплата картой МИР после оформления</p>
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="close" onclick="toggleMenu()">✕</button>
+  <a href="#" onclick="toggleMenu()">Новинки</a>
+  <a href="#" onclick="toggleMenu()">Комплекты</a>
+  <a href="#" onclick="toggleMenu()">Бюстгальтеры</a>
+  <a href="#" onclick="toggleMenu()">Боди</a>
+  <a href="#" onclick="toggleMenu()">Корсеты</a>
+  <a href="#" onclick="toggleMenu()">Ночные сорочки</a>
+  <a href="#" onclick="toggleMenu()">Пижамы</a>
+  <a href="#" onclick="toggleMenu()">Халаты</a>
+  <a href="#" onclick="toggleMenu()">Чулки &amp; Пояса</a>
+  <a href="#" onclick="toggleMenu()">Трусики</a>
+  <a href="#" onclick="toggleMenu()">Распродажа</a>
 </div>
 
-<section class="section">
-  <div class="s-header"><h2>Коллекции</h2><p>Выберите свою категорию</p><div class="dot"></div></div>
-  <div class="cat-row">
-    <div class="cat-tile">
-      <img src="https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/i/n/intimorosa-lormar-ultra-vela-nero-_2__1.jpg" alt="Бюстгальтеры">
-      <div class="overlay"></div>
-      <div class="cat-label"><h3>Бюстгальтеры</h3><span>36 моделей</span></div>
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">Коллекция 2025</div>
+    <h1>Красота,<br>которая <em>ближе</em><br>к телу</h1>
+    <p>Будуарное нижнее бельё для тех, кто ценит нежность и элегантность. Изысканные комплекты, боди и сорочки для особых моментов.</p>
+    <div class="hero-btns">
+      <a href="#catalog" class="btn btn-fill">Смотреть каталог</a>
+      <a href="#categories" class="btn btn-ghost">Все категории</a>
     </div>
-    <div class="cat-tile">
-      <img src="https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/b/r/brasiliana-donna-tutta-pizzo-lormar-yourbody-softy.jpg" alt="Трусы">
-      <div class="overlay"></div>
-      <div class="cat-label"><h3>Трусы</h3><span>18 моделей</span></div>
-    </div>
-    <div class="cat-tile">
-      <img src="https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/i/n/intimorosa-lormar-vanity-body-6_1.jpg" alt="Комплекты">
-      <div class="overlay"></div>
-      <div class="cat-label"><h3>Комплекты</h3><span>12 комплектов</span></div>
-    </div>
-    <div class="cat-tile">
-      <img src="https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/8/4/8442.jpg" alt="Домашнее">
-      <div class="overlay"></div>
-      <div class="cat-label"><h3>Домашнее</h3><span>8 моделей</span></div>
+  </div>
+  <div class="hero-visual">
+    <img src="https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=900&q=80" alt="Bellissimo Lingerie коллекция">
+    <div class="hero-badge">
+      <strong>10 +</strong>
+      категорий белья
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0">
-  <div class="s-header"><h2>Популярное</h2><p>Бестселлеры этого сезона</p><div class="dot"></div></div>
-  <div class="prod-grid" id="grid"></div>
+<!-- Shipping bar -->
+<div class="shipping-bar" style="margin-left:40px;margin-right:40px">
+  <p>🚚 Заказы от <strong>10 000 ₽</strong> — доставляем бесплатно</p>
+  <div class="ship-divider"></div>
+  <p>💳 Оплата картой <strong>МИР</strong> после оформления</p>
+  <div class="ship-divider"></div>
+  <p>📦 Доставка по всей <strong>России</strong></p>
+</div>
+
+<!-- Categories -->
+<section class="section" id="categories">
+  <div class="s-header">
+    <h2>Категории</h2>
+    <p>Найдите то, что создаёт настроение</p>
+    <div class="dot"></div>
+  </div>
+  <div class="cat-row">
+    <div class="cat-tile">
+      <img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=500&q=75" alt="Комплекты">
+      <div class="overlay"></div>
+      <div class="cat-label"><h3>Комплекты</h3><span>бюстгальтер + трусики</span></div>
+    </div>
+    <div class="cat-tile">
+      <img src="https://images.unsplash.com/photo-1594938298603-c8148c4b3462?w=500&q=75" alt="Бюстгальтеры">
+      <div class="overlay"></div>
+      <div class="cat-label"><h3>Бюстгальтеры</h3><span>все виды</span></div>
+    </div>
+    <div class="cat-tile">
+      <img src="https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?w=500&q=75" alt="Боди">
+      <div class="overlay"></div>
+      <div class="cat-label"><h3>Боди</h3><span>соблазнительно</span></div>
+    </div>
+    <div class="cat-tile">
+      <img src="https://images.unsplash.com/photo-1612533613793-63af43a0c8b3?w=500&q=75" alt="Ночные сорочки">
+      <div class="overlay"></div>
+      <div class="cat-label"><h3>Ночные сорочки</h3><span>двойки</span></div>
+    </div>
+    <div class="cat-tile">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=500&q=75" alt="Корсеты">
+      <div class="overlay"></div>
+      <div class="cat-label"><h3>Корсеты</h3><span>и корсажи</span></div>
+    </div>
+  </div>
+  <div class="cat-row-2" style="margin-top:14px">
+    <div class="cat-tile">
+      <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=500&q=75" alt="Пижамы">
+      <div class="overlay"></div>
+      <div class="cat-label"><h3>Пижамы</h3><span>пижамные комплекты</span></div>
+    </div>
+    <div class="cat-tile">
+      <img src="https://images.unsplash.com/photo-1620799139834-6b8f844fbe61?w=500&q=75" alt="Халаты">
+      <div class="overlay"></div>
+      <div class="cat-label"><h3>Халаты</h3><span>будуарные</span></div>
+    </div>
+    <div class="cat-tile">
+      <img src="https://images.unsplash.com/photo-1566479179817-c0a7a95aed56?w=500&q=75" alt="Чулки">
+      <div class="overlay"></div>
+      <div class="cat-label"><h3>Чулки</h3><span>и пояса</span></div>
+    </div>
+    <div class="cat-tile">
+      <img src="https://images.unsplash.com/photo-1545291730-faff8ca1d4b0?w=500&q=75" alt="Трусики">
+      <div class="overlay"></div>
+      <div class="cat-label"><h3>Трусики</h3><span>все виды</span></div>
+    </div>
+    <div class="cat-tile" style="background:linear-gradient(135deg,var(--accent),var(--accent-dark));display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;text-decoration:none">
+      <div style="text-align:center;color:#fff;padding:20px">
+        <div style="font-size:32px;margin-bottom:12px">✦</div>
+        <div style="font-family:var(--serif);font-size:18px;font-weight:300;margin-bottom:6px">Все товары</div>
+        <div style="font-size:11px;opacity:.75;letter-spacing:1px;text-transform:uppercase">посмотреть каталог</div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- New arrivals -->
+<section class="section" style="padding-top:0" id="catalog">
+  <div class="s-header"><h2>Новинки</h2><p>Только что появились в магазине</p><div class="dot"></div></div>
+  <div class="prod-grid" id="grid-new"></div>
+</section>
+
+<!-- Promo banner -->
 <section class="section" style="padding-top:0">
   <div class="promo-banner">
     <div class="promo-text">
-      <h2>Комплекты со скидкой до <span style="color:var(--accent)">−30%</span></h2>
-      <p>Бюстгальтер + трусики по специальной цене. Только до конца месяца.</p>
-      <a href="#" class="btn btn-fill">Подобрать комплект</a>
+      <h2>Бесплатная доставка<br>от <span style="color:var(--accent)">10 000 ₽</span></h2>
+      <p>Наберите любимые вещи на сумму от 10 000 ₽ — и мы доставим ваш заказ бесплатно по всей России. СДЭК, Почта России или курьер.</p>
+      <a href="#catalog" class="btn btn-fill">Перейти в каталог</a>
     </div>
     <div class="promo-img">
-      <img src="https://quattrostagioni.quantico.express/shared/quattrostagioni/public/images/prod/52811C.jpg" alt="Акция Lormar">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&q=80" alt="Bellissimo акция">
     </div>
   </div>
 </section>
 
+<!-- Bestsellers -->
+<section class="section">
+  <div class="s-header"><h2>Популярное</h2><p>Выбор наших покупательниц</p><div class="dot"></div></div>
+  <div class="prod-grid" id="grid-popular"></div>
+</section>
+
+<!-- Delivery -->
 <section class="section" style="padding-top:0">
   <div class="s-header"><h2>Доставка</h2><p>Отправляем по всей России</p><div class="dot"></div></div>
   <div class="del-cards">
-    <div class="del-card"><div class="di">📦</div><h4>СДЭК</h4><p>Пункт выдачи или курьер. 2–5 дней.</p><div class="cost">от 290 ₽</div></div>
-    <div class="del-card"><div class="di">✉️</div><h4>Почта России</h4><p>Первый класс, любой населённый пункт. 5–10 дней.</p><div class="cost">от 250 ₽</div></div>
-    <div class="del-card"><div class="di">⚡</div><h4>Курьер Москва / СПб</h4><p>В день заказа или на следующий.</p><div class="cost">от 350 ₽</div></div>
+    <div class="del-card">
+      <div class="di">📦</div>
+      <h4>СДЭК</h4>
+      <p>Пункт выдачи или курьер до двери. Быстро и надёжно.</p>
+      <div class="cost">от 290 ₽ · 2–5 дней</div>
+    </div>
+    <div class="del-card">
+      <div class="di">✉️</div>
+      <h4>Почта России</h4>
+      <p>Первый класс, доступна в любом населённом пункте.</p>
+      <div class="cost">от 250 ₽ · 5–10 дней</div>
+    </div>
+    <div class="del-card">
+      <div class="di">⚡</div>
+      <h4>Курьер</h4>
+      <p>Москва и Санкт-Петербург — в день заказа или на следующий.</p>
+      <div class="cost">от 350 ₽ · 1 день</div>
+    </div>
   </div>
-  <div class="del-note">💳 Оплата картой <strong>МИР</strong> после оформления · Бесплатная доставка от <strong>10 000 ₽</strong></div>
+  <div class="del-note">
+    💳 Оплата картой <strong>МИР</strong> после оформления заказа &nbsp;·&nbsp; 
+    🚚 Бесплатная доставка при заказе от <strong>10 000 ₽</strong> &nbsp;·&nbsp;
+    📍 Доставка только по <strong>России</strong>
+  </div>
 </section>
 
-<section class="trust"><div class="trust-grid">
-  <div class="trust-item"><div class="trust-icon">✦</div><h4>Натуральные ткани</h4><p>Хлопок, модал, шёлк</p></div>
-  <div class="trust-item"><div class="trust-icon">↩</div><h4>Возврат 14 дней</h4><p>Бесплатный обмен размера</p></div>
-  <div class="trust-item"><div class="trust-icon">🔒</div><h4>Безопасная оплата</h4><p>Защищённый платёжный шлюз</p></div>
-  <div class="trust-item"><div class="trust-icon">🎁</div><h4>Подарочная упаковка</h4><p>Стильная коробка с лентой</p></div>
-</div></section>
+<!-- Trust -->
+<section class="trust">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-icon">🌹</div>
+      <h4>Будуарный стиль</h4>
+      <p>Изысканное бельё для женщин, которые ценят красоту</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">📸</div>
+      <h4>Студийные фото</h4>
+      <p>Каждый товар в деталях — зум, несколько ракурсов</p>
+    </div>
+    <div class="trust-icon">🔒</div>
+    <div class="trust-item">
+      <div class="trust-icon">💳</div>
+      <h4>Безопасная оплата</h4>
+      <p>Карта МИР, оплата после оформления заказа</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🎁</div>
+      <h4>Бережная упаковка</h4>
+      <p>Аккуратная упаковка для хрупких тканей и кружева</p>
+    </div>
+  </div>
+</section>
 
-<section class="nl"><h2>Будьте в курсе</h2><p>Подпишитесь и получите скидку 10% на первый заказ</p><div class="nl-form"><input type="email" placeholder="Ваш e-mail"><button>Подписаться</button></div></section>
+<!-- Social -->
+<section class="social-strip">
+  <h3>Мы в социальных сетях</h3>
+  <p>Следите за новинками и акциями</p>
+  <div class="social-icons">
+    <a href="https://t.me/bellissimolingerie" target="_blank" class="soc-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 1 0 23.988 12 12.012 12.012 0 0 0 11.944 0Zm5.822 8.265-1.893 8.924c-.143.617-.517.77-.046.482l-2.965-2.184-1.43 1.378c-.158.158-.291.291-.597.291l.213-3.026 5.503-4.97c.239-.213-.052-.332-.371-.119L6.726 14.055l-2.9-.91c-.632-.198-.643-.632.132-.934l11.343-4.374c.527-.193.99.123.47.428Z"/></svg>
+      Telegram
+    </a>
+    <a href="https://vk.ru/bellissimolingerie" target="_blank" class="soc-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 13.944c.322.317.66.624.976.953.133.138.257.28.352.44.133.222.05.466-.151.48l-1.286.002c-.337.028-.607-.107-.831-.333-.177-.181-.343-.373-.516-.558-.222-.238-.458-.356-.736-.293-.276.063-.35.3-.363.567a1.21 1.21 0 0 1-.059.43c-.136.348-.47.434-.809.412-1.26-.077-2.328-.537-3.25-1.37-.87-.786-1.52-1.761-2.091-2.793-.562-1.017-1.05-2.076-1.422-3.183-.094-.281-.05-.43.239-.434.43-.008.861-.008 1.292 0 .177.003.294.103.355.273.218.614.488 1.204.836 1.757.097.15.197.3.343.4.16.113.282.074.363-.1.05-.104.072-.218.084-.332.045-.41.05-.82-.01-1.23-.038-.252-.185-.415-.435-.462-.127-.024-.108-.09-.046-.162a.545.545 0 0 1 .39-.18h1.455c.229.045.28.154.31.384l.001 1.636c-.003.09.044.357.203.416.127.045.211-.062.29-.145.398-.42.681-.916.93-1.43.114-.233.212-.473.306-.714.072-.184.185-.275.386-.271l1.4.002c.042 0 .085.001.126.01.214.04.273.135.205.343-.11.336-.317.624-.52.91-.214.3-.44.59-.643.894-.186.279-.17.42.057.667z"/></svg>
+      ВКонтакте
+    </a>
+    <a href="https://instagram.com/bellissimolingerie" target="_blank" class="soc-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Instagram
+    </a>
+    <a href="https://wa.me/79114589339" target="_blank" class="soc-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.103 1.516 5.835L0 24l6.318-1.488A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0Zm6.23 16.428c-.262.737-1.536 1.408-2.1 1.46-.569.055-1.104.273-3.71-.773-3.143-1.266-5.155-4.46-5.308-4.67-.152-.21-1.244-1.658-1.244-3.161s.787-2.24 1.066-2.548c.278-.306.608-.383.811-.383.202 0 .405.002.582.01.187.01.438-.07.686.524.256.614.873 2.118.95 2.271.076.153.127.333.025.538-.103.205-.154.333-.305.513-.152.18-.32.402-.457.54-.152.153-.31.319-.133.625.177.306.784 1.292 1.683 2.092 1.155 1.03 2.13 1.347 2.436 1.5.305.152.484.127.662-.076.178-.204.762-.89 1.065-1.194.231-.232.403-.186.684-.07.28.116 1.772.836 2.076.988.305.153.508.23.583.355.077.127.077.737-.184 1.474Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</section>
 
+<!-- Newsletter -->
+<section class="nl">
+  <h2>Будьте в курсе</h2>
+  <p>Подпишитесь на новинки и получите скидку на первый заказ</p>
+  <div class="nl-form">
+    <input type="email" placeholder="Ваш e-mail">
+    <button>Подписаться</button>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
   <div class="f-grid">
-    <div class="f-brand"><a href="#" class="logo"><i>Intimo</i></a><p>Интернет-магазин женского нижнего белья. Натуральные ткани, продуманные лекала, доставка по всей России.</p></div>
-    <div><h5>Каталог</h5><ul><li><a href="#">Бюстгальтеры</a></li><li><a href="#">Трусы</a></li><li><a href="#">Комплекты</a></li><li><a href="#">Домашняя одежда</a></li><li><a href="#">Sale</a></li></ul></div>
-    <div><h5>Покупателям</h5><ul><li><a href="#">Доставка и оплата</a></li><li><a href="#">Обмен и возврат</a></li><li><a href="#">Размерная сетка</a></li><li><a href="#">FAQ</a></li></ul></div>
-    <div><h5>Контакты</h5><ul><li><a href="#">+7 (999) 123-45-67</a></li><li><a href="#">hello@intimo.ru</a></li><li><a href="#">Telegram</a></li><li><a href="#">WhatsApp</a></li></ul></div>
+    <div class="f-brand">
+      <a href="#" class="logo">
+        <span class="logo-main">Bellissimo</span>
+        <span class="logo-sub">Lingerie</span>
+      </a>
+      <p>Интернет-магазин будуарного нижнего белья. Изысканные комплекты, боди, корсеты и пижамы с доставкой по всей России.</p>
+    </div>
+    <div>
+      <h5>Каталог</h5>
+      <ul>
+        <li><a href="#">Комплекты</a></li>
+        <li><a href="#">Бюстгальтеры</a></li>
+        <li><a href="#">Боди</a></li>
+        <li><a href="#">Корсеты</a></li>
+        <li><a href="#">Ночные сорочки</a></li>
+        <li><a href="#">Пижамы</a></li>
+        <li><a href="#">Халаты</a></li>
+        <li><a href="#">Чулки &amp; Пояса</a></li>
+        <li><a href="#">Трусики</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Покупателям</h5>
+      <ul>
+        <li><a href="#">Доставка и оплата</a></li>
+        <li><a href="#">Обмен и возврат</a></li>
+        <li><a href="#">Размерная сетка</a></li>
+        <li><a href="#">Вопросы и ответы</a></li>
+        <li><a href="#">О магазине</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Контакты</h5>
+      <div class="f-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+        <a href="tel:+79114589339">+7 911 458-93-39</a>
+      </div>
+      <div class="f-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+        <a href="tel:+79062108655">+7 906 210-86-55</a>
+      </div>
+      <div class="f-contact-item">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 1 0 23.988 12 12.012 12.012 0 0 0 11.944 0Zm5.822 8.265-1.893 8.924c-.143.617-.517.77-.046.482l-2.965-2.184-1.43 1.378c-.158.158-.291.291-.597.291l.213-3.026 5.503-4.97c.239-.213-.052-.332-.371-.119L6.726 14.055l-2.9-.91c-.632-.198-.643-.632.132-.934l11.343-4.374c.527-.193.99.123.47.428Z"/></svg>
+        <a href="https://t.me/bellissimolingerie" target="_blank">t.me/bellissimolingerie</a>
+      </div>
+      <div class="f-contact-item">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.103 1.516 5.835L0 24l6.318-1.488A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0Zm6.23 16.428c-.262.737-1.536 1.408-2.1 1.46-.569.055-1.104.273-3.71-.773-3.143-1.266-5.155-4.46-5.308-4.67-.152-.21-1.244-1.658-1.244-3.161s.787-2.24 1.066-2.548c.278-.306.608-.383.811-.383.202 0 .405.002.582.01.187.01.438-.07.686.524.256.614.873 2.118.95 2.271.076.153.127.333.025.538-.103.205-.154.333-.305.513-.152.18-.32.402-.457.54-.152.153-.31.319-.133.625.177.306.784 1.292 1.683 2.092 1.155 1.03 2.13 1.347 2.436 1.5.305.152.484.127.662-.076.178-.204.762-.89 1.065-1.194.231-.232.403-.186.684-.07.28.116 1.772.836 2.076.988.305.153.508.23.583.355.077.127.077.737-.184 1.474Z"/></svg>
+        <a href="https://wa.me/79114589339" target="_blank">WhatsApp</a>
+      </div>
+      <div class="f-contact-item">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.579 6.855c.14-.465 0-.806-.662-.806h-2.193c-.558 0-.814.295-.953.619 0 0-1.115 2.714-2.693 4.48-.51.513-.742.675-1.02.675-.14 0-.34-.162-.34-.627V6.855c0-.558-.161-.806-.626-.806H9.974c-.348 0-.558.259-.558.504 0 .528.79.65.871 2.138v3.228c0 .707-.127.836-.406.836-.742 0-2.548-2.725-3.62-5.842-.21-.607-.42-.852-.98-.852H3.088c-.626 0-.75.295-.75.619 0 .58.742 3.452 3.455 7.254C7.587 16.41 9.892 17.5 11.98 17.5c1.23 0 1.38-.276 1.38-.752v-1.737c0-.626.132-.75.573-.75.325 0 .882.163 2.183 1.42C17.625 16.99 17.859 17.5 18.625 17.5h2.193c.626 0 .939-.276.759-.82-.198-.542-.907-1.33-1.85-2.263-.511-.604-1.278-1.254-1.51-1.579-.325-.417-.232-.603 0-.974 0 0 2.6-3.663 2.873-4.908l-.511-.101Z"/></svg>
+        <a href="https://vk.ru/bellissimolingerie" target="_blank">ВКонтакте</a>
+      </div>
+    </div>
   </div>
-  <div class="f-bottom"><span>© 2026 Intimo. Все права защищены.</span><div class="f-pay"><span>МИР</span><span>СБП</span></div></div>
+  <div class="f-bottom">
+    <span>© 2025 Bellissimo Lingerie. Все права защищены.</span>
+    <div class="f-pay"><span>МИР</span><span>СБП</span></div>
+  </div>
 </footer>
 
+<!-- Cart sidebar -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>Корзина</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty">
+      <div class="ei">🛍️</div>
+      <p>Ваша корзина пуста</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Итого:</span><strong id="cart-total">0 ₽</strong></div>
+    <div class="delivery-note" id="delivery-note">Добавьте товаров на <strong id="left-for-free">10 000 ₽</strong>, чтобы получить бесплатную доставку</div>
+    <button class="cart-btn">Оформить заказ</button>
+  </div>
+</div>
+
 <script>
-// Real Lormar product images from official retailer
-const IMG=[
-  'https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/i/n/intimorosa-lormar-ultra-vela-nero-_2__1.jpg',
-  'https://quattrostagioni.quantico.express/shared/quattrostagioni/public/images/prod/52811C.jpg',
-  'https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/i/n/intimorosa-lormar-ultrashine-triangolo-golden-_9__1.jpg',
-  'https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/i/n/intimorosa-lormar-plunge-1907-nero.jpg',
-  'https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/l/o/lormar-balc.-imbottito-01432-1.jpg',
-  'https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/i/n/intimorosa-lormar-reggiseno-vela-nero_2.jpg',
-  'https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/a/c/active-01433.jpg',
-  'https://www.intimorosa.com/media/catalog/product/cache/b2a7666f06142c791877f7f1a84d6037/l/o/lormar-feel-01434.jpg'
+// ── Data ──
+const FREE_DELIVERY = 10000;
+
+const PRODUCTS = [
+  {id:1, name:'Кружевной комплект Rose',     cat:'Комплекты',       price:3490, sizes:['S','M','L','XL'],  tag:'new',
+   img:'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=600&q=80'},
+  {id:2, name:'Боди Velvet Touch',            cat:'Боди',            price:4200, sizes:['XS','S','M','L'],  tag:'new',
+   img:'https://images.unsplash.com/photo-1594938298603-c8148c4b3462?w=600&q=80'},
+  {id:3, name:'Корсет Midnight Bloom',        cat:'Корсеты',         price:5800, sizes:['S','M','L'],       tag:'',
+   img:'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80'},
+  {id:4, name:'Пижама Silk Dreams',           cat:'Пижамы',          price:6200, sizes:['S','M','L','XL'],  tag:'new',
+   img:'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&q=80'},
+  {id:5, name:'Сорочка-двойка Tender',        cat:'Ночные сорочки',  price:3800, sizes:['S','M','L'],       tag:'',
+   img:'https://images.unsplash.com/photo-1612533613793-63af43a0c8b3?w=600&q=80'},
+  {id:6, name:'Халат Florentine',             cat:'Халаты',          price:7200, sizes:['S','M','L','XL'],  tag:'',
+   img:'https://images.unsplash.com/photo-1620799139834-6b8f844fbe61?w=600&q=80'},
+  {id:7, name:'Комплект Lace Amore',          cat:'Комплекты',       price:4100, sizes:['S','M','L'],       tag:'sale', oldPrice:5200,
+   img:'https://images.unsplash.com/photo-1545291730-faff8ca1d4b0?w=600&q=80'},
+  {id:8, name:'Бюстгальтер Push-Up Belle',   cat:'Бюстгальтеры',    price:2900, sizes:['2B','3B','4B','3C'], tag:'',
+   img:'https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?w=600&q=80'},
 ];
-const P=[
-  {name:'Ultra Vela — с ферretto',brand:'Lormar',price:'2 190 ₽',old:'',sizes:['2B','3B','4B','3C'],tag:'new'},
-  {name:'Balconcino Comfy — Your Body',brand:'Lormar',price:'2 490 ₽',old:'3 190 ₽',sizes:['3C','4C','5C'],tag:'sale'},
-  {name:'Triangolo Shine — эффект шёлка',brand:'Lormar',price:'1 890 ₽',old:'',sizes:['2B','3B','4B','5B'],tag:'new'},
-  {name:'Plunge 1907 — balconcino',brand:'Lormar',price:'1 990 ₽',old:'2 390 ₽',sizes:['3B','4B','3C','4C'],tag:'sale'},
-  {name:'Balconcino One — микрофибра',brand:'Lormar',price:'1 890 ₽',old:'',sizes:['3C','4C','5C','3D'],tag:''},
-  {name:'Vela 1944 — без косточки',brand:'Lormar',price:'1 890 ₽',old:'2 090 ₽',sizes:['2B','3B','4B'],tag:'sale'},
-  {name:'Active Este — V-образный вырез',brand:'Lormar',price:'1 890 ₽',old:'',sizes:['2B','3B','4B','5B'],tag:'new'},
-  {name:'Fell — съёмные бретельки',brand:'Lormar',price:'1 890 ₽',old:'',sizes:['3C','4C','5C'],tag:''}
+
+const POPULAR = [
+  {id:9,  name:'Комплект Bella Rosa',        cat:'Комплекты',       price:3900, sizes:['S','M','L'],       tag:'',
+   img:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&q=80'},
+  {id:10, name:'Боди с кружевом Noir',       cat:'Боди',            price:4600, sizes:['XS','S','M'],      tag:'',
+   img:'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=600&q=80'},
+  {id:11, name:'Пояс для чулок Parisian',    cat:'Пояса для чулок', price:2200, sizes:['S','M','L'],       tag:'new',
+   img:'https://images.unsplash.com/photo-1566479179817-c0a7a95aed56?w=600&q=80'},
+  {id:12, name:'Трусики Bloom Set (3шт)',    cat:'Трусики',         price:1800, sizes:['XS','S','M','L'],  tag:'sale', oldPrice:2400,
+   img:'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80'},
 ];
-document.getElementById('grid').innerHTML=P.map((p,i)=>`<div class="prod-card"><div class="prod-img"><img src="${IMG[i]}" alt="${p.name}">${p.tag==='new'?'<span class="tag tag-new">New</span>':''}${p.tag==='sale'?'<span class="tag tag-sale">−30%</span>':''}<button class="wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C12 21 4 15 4 8.5C4 5.5 6.5 3 9.5 3C11 3 12 4 12 4S13 3 14.5 3C17.5 3 20 5.5 20 8.5C20 15 12 21 12 21Z"/></svg></button><div class="add-bar">+ В корзину</div></div><div class="prod-body"><div class="prod-brand">${p.brand}</div><div class="prod-name">${p.name}</div><div class="prod-prices"><span class="now">${p.price}</span>${p.old?'<span class="was">'+p.old+'</span>':''}</div><div class="prod-sizes">${p.sizes.map(s=>'<span>'+s+'</span>').join('')}</div></div></div>`).join('');
+
+// ── Cart state ──
+let cart = [];
+
+// ── Render cards ──
+function renderGrid(products, containerId) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = products.map(p => `
+    <div class="prod-card" onclick="addToCart(${p.id})">
+      <div class="prod-img">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        ${p.tag === 'new'  ? '<span class="tag tag-new">New</span>' : ''}
+        ${p.tag === 'sale' ? '<span class="tag tag-sale">Sale</span>' : ''}
+        <button class="wishlist" onclick="event.stopPropagation()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 21C12 21 4 15 4 8.5C4 5.5 6.5 3 9.5 3C11 3 12 4 12 4S13 3 14.5 3C17.5 3 20 5.5 20 8.5C20 15 12 21 12 21Z"/>
+          </svg>
+        </button>
+        <div class="add-bar">+ В корзину</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">${p.cat}</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-prices">
+          <span class="now">${p.price.toLocaleString('ru')} ₽</span>
+          ${p.oldPrice ? `<span class="was">${p.oldPrice.toLocaleString('ru')} ₽</span>` : ''}
+        </div>
+        <div class="prod-sizes">${p.sizes.map(s => `<span>${s}</span>`).join('')}</div>
+      </div>
+    </div>`).join('');
+}
+
+renderGrid(PRODUCTS, 'grid-new');
+renderGrid(POPULAR, 'grid-popular');
+
+// ── Cart logic ──
+function addToCart(id) {
+  const all = [...PRODUCTS, ...POPULAR];
+  const p = all.find(x => x.id === id);
+  if (!p) return;
+  const existing = cart.find(x => x.id === id);
+  if (existing) existing.qty++;
+  else cart.push({...p, qty: 1});
+  updateCart();
+  toggleCart(true);
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(x => x.id !== id);
+  updateCart();
+}
+
+function updateCart() {
+  const total = cart.reduce((s, x) => s + x.price * x.qty, 0);
+  const count = cart.reduce((s, x) => s + x.qty, 0);
+
+  document.getElementById('cart-count').textContent = count;
+  document.getElementById('cart-total').textContent = total.toLocaleString('ru') + ' ₽';
+
+  const note = document.getElementById('delivery-note');
+  const left = FREE_DELIVERY - total;
+  if (left <= 0) {
+    note.className = 'delivery-note free';
+    note.innerHTML = '🎉 <strong>Бесплатная доставка</strong> включена!';
+  } else {
+    note.className = 'delivery-note';
+    note.innerHTML = `Добавьте ещё на <strong>${left.toLocaleString('ru')} ₽</strong> — доставка бесплатная`;
+  }
+
+  const el = document.getElementById('cart-items');
+  if (cart.length === 0) {
+    el.innerHTML = '<div class="cart-empty"><div class="ei">🛍️</div><p>Ваша корзина пуста</p></div>';
+    return;
+  }
+  el.innerHTML = cart.map(p => `
+    <div class="cart-item">
+      <img src="${p.img}" alt="${p.name}">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${p.name}</div>
+        <div class="cart-item-size">${p.cat} · кол-во: ${p.qty}</div>
+        <div class="cart-item-price">${(p.price * p.qty).toLocaleString('ru')} ₽</div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${p.id})">×</button>
+    </div>`).join('');
+}
+
+// ── Toggle cart ──
+function toggleCart(forceOpen) {
+  const sidebar = document.getElementById('cart-sidebar');
+  const overlay = document.getElementById('cart-overlay');
+  const open = forceOpen !== undefined ? forceOpen : !sidebar.classList.contains('open');
+  sidebar.classList.toggle('open', open);
+  overlay.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
+// ── Mobile menu ──
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
 </script>
 </body>
 </html>
